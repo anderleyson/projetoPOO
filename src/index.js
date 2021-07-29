@@ -1,10 +1,14 @@
 const rl = require('./interface/readline');
 const options = require('./data/data');
-const machineOptions = require('./controller/class/machineOptions')
+const machineOptions = require('./controller/class/machineOptions');
+const User = require('./controller/class/user')
 
-let sorteio = new machineOptions({opt: options}).sort();
+let usuario = new User({
+    opt: options, 
+    name: 'Maria', 
+    selected:'Pedra'}).game();
 
-console.log(sorteio);
+console.log(usuario);
 /*
 rl.question('Você está gostando de POO?', resposta =>{
     console.log(`Sua resposta foi ${resposta}`);
