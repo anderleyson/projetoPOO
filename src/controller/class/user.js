@@ -1,4 +1,7 @@
 const machineOptions = require('./machineOptions');
+
+const options = require('../../data/data');
+const inquirer = require('inquirer');
 class User extends machineOptions{
 
     constructor({opt, name, selected}){
@@ -29,7 +32,24 @@ class User extends machineOptions{
         }
     }
     game(){
-        return this.logic();
+        return inquirer
+            .prompt([
+                {
+                    name: 'name',
+                    message: 'Qual o seu nome?',
+                    default: 'Jogador'
+                },
+                {
+                    type:'list',
+                    name: 'Jokenpo',
+                    message: 'Selecione uma destas opções',
+                    choices: options
+                }
+            ]).then((answers)=> {
+                this._name = answers.name;
+                this._selected = answers.Jokenpo;
+                console.info(`${this._name}, o resultado é ${this._selected}`)
+            })
     }
 
 }
