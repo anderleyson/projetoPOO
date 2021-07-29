@@ -48,7 +48,7 @@ class User extends machineOptions{
             ]).then((answers)=> {
                 this._name = answers.name;
                 this._selected = answers.Jokenpo;
-                console.info(`${this._name}, o resultado é ${this._selected}`)
+                console.info(`${this.logic()}`)
             })
     }
 
