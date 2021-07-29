@@ -1,7 +1,8 @@
 const machineOptions = require('./machineOptions');
-
 const options = require('../../data/data');
 const inquirer = require('inquirer');
+const gameby = require('../../data/gameby');
+
 class User extends machineOptions{
 
     constructor({opt, name, selected}){
@@ -32,6 +33,7 @@ class User extends machineOptions{
         }
     }
     game(){
+        console.info(gameby);
         return inquirer
             .prompt([
                 {
